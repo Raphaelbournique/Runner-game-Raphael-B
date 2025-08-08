@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Runner Parallax Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Écran d'accueil -->
+  <div id="start-screen">
+    <h1>Runner Game</h1>
+    <button id="start-button">Start</button>
+  </div>
+
+  <!-- Zone de jeu -->
+  <div id="game">
+    <!-- Fond parallax -->
+    <div id="parallax">
+      <div class="layer" id="stars"></div>          <!-- Layer 2 -->
+      <div class="layer" id="moon"></div>           <!-- Layer 3 -->
+      <div class="layer cloud" id="clouds1"></div>  <!-- Layer 4 -->
+      <div class="layer cloud" id="clouds2"></div>  <!-- Layer 5 -->
+      <div class="layer" id="far-buildings"></div>  <!-- Layer 6 -->
+      <div class="layer" id="bg-buildings"></div>   <!-- Layer 7 -->
+      <div class="layer" id="fg-buildings"></div>   <!-- Layer 8 -->
+      <div class="layer" id="wall"></div>           <!-- Layer 9 -->
+      <div class="layer" id="ground"></div>         <!-- Layer 1 -->
+    </div>
+
+    <!-- Joueur -->
+    <div id="player"></div>
+
+    <!-- Score -->
+    <div id="score">Score: 0</div>
+
+    <!-- Écran Game Over -->
+    <div id="game-over" style="display: none;">
+      <h2>Game Over</h2>
+      <button id="restart-button">Restart</button>
+    </div>
+  </div>
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
+</body>
+</html>

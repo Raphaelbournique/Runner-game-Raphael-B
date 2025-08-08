@@ -1,0 +1,211 @@
+/* Reset + base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: black;
+}
+
+/* Écran de démarrage */
+#start-screen {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom, #2d3436, #000);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+#start-screen h1 {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 20px;
+}
+
+#start-screen button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Zone de jeu */
+#game {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Parallax layers */
+#parallax {
+  position: absolute;
+  width: 300%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+.layer {
+  position: absolute;
+  width: 300%;
+  height: 100%;
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: auto 100%;
+}
+
+#stars {
+  background-image: url('assets/background/layer_2_stars.png');
+  z-index: 0;
+  animation: scrollLayer 200s linear infinite;
+}
+
+#moon {
+  background-image: url('assets/background/layer_3_moon.png');
+  z-index: 1;
+  animation: scrollLayer 300s linear infinite;
+}
+
+#clouds1 {
+  background-image: url('assets/background/layer_4_clouds_1.png');
+  z-index: 2;
+  animation: scrollClouds 60s linear infinite;
+  opacity: 0.8;
+}
+
+#clouds2 {
+  background-image: url('assets/background/layer_5_clouds_2.png');
+  z-index: 3;
+  animation: scrollClouds 45s linear infinite;
+  opacity: 0.6;
+}
+
+#far-buildings {
+  background-image: url('assets/background/layer_6_far_buildings.png');
+  z-index: 4;
+  animation: scrollLayer 40s linear infinite;
+}
+
+#bg-buildings {
+  background-image: url('assets/background/layer_7_bg_buildings.png');
+  z-index: 5;
+  animation: scrollLayer 30s linear infinite;
+}
+
+#fg-buildings {
+  background-image: url('assets/background/layer_8_fg_buildings.png');
+  z-index: 6;
+  animation: scrollLayer 20s linear infinite;
+}
+
+#wall {
+  background-image: url('assets/background/layer_9_wall.png');
+  z-index: 7;
+  animation: scrollLayer 10s linear infinite;
+}
+
+#ground {
+  background-image: url('assets/background/layer_1_ground.png');
+  height: 140px;
+  bottom: 0;
+  z-index: 8;
+  animation: scrollLayer 8s linear infinite;
+}
+
+/* Joueur */
+#player {
+  position: absolute;
+  bottom: 125px; 
+  left: 100px;
+  width: 64px;
+  height: 64px;
+  background-image: url('assets/player/Green-Blob-Run.png');
+  background-repeat: no-repeat;
+  z-index: 9;
+}
+
+
+/* Animation de course */
+.run-animation {
+  background-image: url('assets/player/Green-Blob-Run.png');
+  animation: runSprite 0.8s steps(8) infinite;
+}
+
+/* Animation de saut */
+.jump-animation {
+  background-image: url('assets/player/Green-Blob-Jump.png');
+  animation: none;
+}
+
+/* Sprite sheet animation */
+@keyframes runSprite {
+  from { background-position-x: 0; }
+  to { background-position-x: -256px; } /* 8 frames × 32px */
+}
+
+/* Obstacles */
+.obstacle {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 140px;
+  left: 100%;
+  z-index: 9;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Score */
+#score {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  color: white;
+  z-index: 10;
+}
+
+/* Game Over */
+#game-over {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  background-color: rgba(0,0,0,0.7);
+  padding: 30px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+}
+
+#game-over button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes scrollLayer {
+  from { background-position-x: 0; }
+  to { background-position-x: -1000px; }
+}
+
+@keyframes scrollClouds {
+  0% { background-position-x: 0; opacity: 0.2; }
+  20% { opacity: 0.5; }
+  40% { opacity: 0.2; }
+  60% { opacity: 0.7; }
+  80% { opacity: 0.3; }
+  100% { background-position-x: -1000px; opacity: 0.4; }
+}
